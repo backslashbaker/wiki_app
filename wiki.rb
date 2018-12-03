@@ -26,6 +26,11 @@ get '/:title' do
 	erb :show
 end
 
+post '/create' do
+	"Hello from the post /create route!"
+end
+
+
 
 
 
