@@ -6,6 +6,12 @@ rescue Errno::ENOENT
 	return nil
 end
 
+def save_content(title, content)
+	File.open("pages/#{title}.txt", "w") do |file|
+		file.print(convert)
+	end
+end
+
 get '/' do
 	erb :welcome
 end
@@ -16,4 +22,9 @@ get '/:title' do
 	@content = page_content(@title)
 	erb :show
 end
+
+get '/new' do 
+	erb :new
+end
+
 
