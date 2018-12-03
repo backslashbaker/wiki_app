@@ -16,6 +16,9 @@ get '/' do
 	erb :welcome
 end
 
+get '/new' do 
+	erb :new
+end
 
 get '/:title' do
 	@title = params[:title]
@@ -23,8 +26,6 @@ get '/:title' do
 	erb :show
 end
 
-get '/new' do 
-	erb :new
-end
+
 
 
