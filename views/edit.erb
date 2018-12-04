@@ -1,10 +1,11 @@
 <h1>Edit Page: <%= @title %> </h1>
 
 <div>
-	<form >
+	<form method="post" action="/<%= @title %>">
+	<input type="hidden" name="_method" value="put">
 		<fieldset>
 			<label for="content">Content:</label>
-			<textarea rows="10" columns="50" name="content" id="conent"></textarea>
+			<textarea rows="10" columns="50" name="content" id="conent"><%= @content %></textarea>
 		</fieldset>
 		<input type="submit">
 	</form>
