@@ -13,6 +13,12 @@ def save_content(title, content)
 	end
 end
 
+def delete_content(title, content)
+	File.open("pages/#{title}.txt", "w") do |file|
+		file.print(content)
+	end
+end
+
 get '/' do
 	erb :welcome
 end
@@ -32,8 +38,6 @@ get '/:title/edit' do
 	@content = page_content(@title)
 	erb :edit
 end
-
-
 
 post '/create' do
 	save_content(params["title"], params["content"])
