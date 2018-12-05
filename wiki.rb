@@ -13,10 +13,8 @@ def save_content(title, content)
 	end
 end
 
-def delete_content(title, content)
-	File.open("pages/#{title}.txt", "w") do |file|
-		file.print(content)
-	end
+def delete_content(title)
+	File.delete("pages/#{title}.txt")
 end
 
 get '/' do
@@ -47,6 +45,11 @@ end
 put "/:title" do
 	save_content(params["title"], params["content"])
 	redirect URI.escape("/#{params["title"]}")
+end
+
+delete "/:title" do
+	delete_content(params["title"])
+	redirect "/"
 end
 
 
